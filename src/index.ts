@@ -1,115 +1,52 @@
-import type {
-  MulphilogOptions,
-  MulphilogClient,
-  TrackingInfo,
-  CreateOrderOptions,
-  CreateOrderResponse,
-} from "./types.js";
+import type { MulphilogOptions, Result } from "./types/common.js";
+import type { CNTrackingResult } from "./models/tracking.js";
+import type { CNTrackingRequest } from "./endpoints/tracking.js";
+import { createClientConfig, callEndpoint } from "./client.js";
+import { CNTrackingEndpoint } from "./endpoints/tracking.js";
 
 /**
- * Default configuration values
+ * Mulphilog API client interface
  */
-const DEFAULT_OPTIONS: Required<MulphilogOptions> = {
-  apiKey: "",
-  baseUrl: "https://api.mulphilog.com",
-  timeout: 30000,
-};
-
-/**
- * Creates a Mulphilog API client instance
- *
- * @param options - Configuration options for the client
- * @returns Mulphilog API client instance
- *
- * @example
- * ```typescript
- * const mp = Mulphilog({
- *   apiKey: "your-api-key",
- *   baseUrl: "https://api.mulphilog.com"
- * });
- *
- * // Track a shipment
- * const tracking = await mp.track("MP123456789");
- *
- * // Create an order
- * const order = await mp.createOrder({
- *   sender: { ... },
- *   recipient: { ... },
- *   package: { ... }
- * });
- * ```
- */
-export function Mulphilog(options: MulphilogOptions = {}): MulphilogClient {
-  const config = { ...DEFAULT_OPTIONS, ...options };
-
+interface MulphilogClient {
   /**
-   * Make an HTTP request to the Mulphilog API
+   * Track a shipment by consignment number
+   * @param params - Tracking request parameters
+   * @returns Result containing tracking information or error
    */
-  async function request<T>(endpoint: string, method: string = "GET", body?: unknown): Promise<T> {
-    const url = `${config.baseUrl}${endpoint}`;
-    const headers: Record<string, string> = {
-      "Content-Type": "application/json",
-    };
+  track(params: CNTrackingRequest): Promise<Result<CNTrackingResult>>;
+}
 
-    if (config.apiKey) {
-      headers["Authorization"] = `Bearer ${config.apiKey}`;
-    }
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), config.timeout);
-
-    try {
-      const init: RequestInit = {
-        method,
-        headers,
-        signal: controller.signal,
-      };
-
-      if (body) {
-        init.body = JSON.stringify(body);
-      }
-
-      const response = await fetch(url, init);
-
-      if (!response.ok) {
-        throw new Error(`Mulphilog API error: ${response.status} ${response.statusText}`);
-      }
-
-      return (await response.json()) as T;
-    } catch (error) {
-      if (error instanceof Error && error.name === "AbortError") {
-        throw new Error(`Request timeout after ${config.timeout}ms`);
-      }
-      throw error;
-    } finally {
-      clearTimeout(timeoutId);
-    }
-  }
+/**
+ * Create a Mulphilog API client
+ * @param options - Client configuration options
+ * @returns Mulphilog client instance
+ */
+export function Mulphilog(options: MulphilogOptions): MulphilogClient {
+  const config = createClientConfig(options);
 
   return {
     /**
-     * Track a shipment by tracking ID
+     * Track a shipment by consignment number
      */
-    async track(trackingId: string): Promise<TrackingInfo> {
-      if (!trackingId || typeof trackingId !== "string") {
-        throw new Error("Tracking ID must be a non-empty string");
-      }
-
-      return request<TrackingInfo>(`/track/${encodeURIComponent(trackingId)}`);
-    },
-
-    /**
-     * Create a new shipping order
-     */
-    async createOrder(orderOptions: CreateOrderOptions): Promise<CreateOrderResponse> {
-      if (!orderOptions || typeof orderOptions !== "object") {
-        throw new Error("Order options must be provided");
-      }
-
-      return request<CreateOrderResponse>("/orders", "POST", orderOptions);
+    async track(params: CNTrackingRequest): Promise<Result<CNTrackingResult>> {
+      return callEndpoint(config, CNTrackingEndpoint, params);
     },
   };
 }
 
 // Default export for convenience
 export default Mulphilog;
+
+// Re-export types for consumers
+export type { MulphilogOptions, Result } from "./types/common.js";
+export type { CNTrackingRequest } from "./endpoints/tracking.js";
+export type { CNTrackingResult, ShipmentDetails, TrackingEvent } from "./models/tracking.js";
+
+// Re-export errors for consumers
+export {
+  MulphilogError,
+  ValidationError,
+  APIError,
+  TimeoutError,
+  NetworkError,
+} from "./errors.js";
