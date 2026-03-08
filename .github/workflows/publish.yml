@@ -32,6 +32,9 @@ jobs:
       - name: Run linter
         run: pnpm run lint
 
+      - name: Run tests with coverage
+        run: pnpm run test:coverage
+
       - name: Build package
         run: pnpm run build:clean
 

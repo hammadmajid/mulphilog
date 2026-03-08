@@ -31,3 +31,9 @@ jobs:
 
       - name: Run format check
         run: pnpm fmt:check
+
+      - name: Run tests
+        run: pnpm test:run
+
+      - name: Run coverage
+        run: pnpm test:coverage
