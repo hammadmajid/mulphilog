@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial release of mulphilog
 - TypeScript wrapper around Mulphilog (M&P) courier API
 - Track consignment functionality
@@ -18,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - TBD
 
 ### Added
+
 - Initial release
 - Basic tracking functionality
 - TypeScript support
@@ -37,6 +39,7 @@ When making changes, add them under the `[Unreleased]` section using these categ
 - **Security** for vulnerability fixes
 
 When releasing a new version:
+
 1. Update package.json version
 2. Move `[Unreleased]` changes to a new version section
 3. Add the release date

@@ -6,9 +6,7 @@
  * Generic API result wrapper using discriminated union
  * This provides type-safe success/error handling
  */
-export type Result<T, E = Error> =
-  | { ok: true; data: T }
-  | { ok: false; error: E };
+export type Result<T, E = Error> = { ok: true; data: T } | { ok: false; error: E };
 
 /**
  * Configuration options for initializing the Mulphilog API client

@@ -62,44 +62,44 @@ export interface DeliveryInfo {
 export interface ShipmentDetails {
   consignmentNumber: string;
   orderID: string | undefined;
-  
+
   // Origin and destination
   originCity: string;
   destinationCity: string;
   bookingDate: Date;
-  
+
   // Parties involved
   consigneeName: string;
   consignerName: string;
   contactNo: string | undefined;
   deliveryAddress: string;
-  
+
   // Customer information
   customerName: string | undefined;
   customerAccountNo: string | undefined;
-  
+
   // Shipment details
   codAmount: number | undefined;
   weight: number | undefined;
   pieces: number | undefined;
   serviceType: string | undefined;
   specialInstruction: string | undefined;
-  
+
   // Delivery information
   delivery: DeliveryInfo;
-  
+
   // Invoice information
   invoice: InvoiceInfo;
-  
+
   // Return receipt information
   returnReceipt: ReturnReceiptInfo;
-  
+
   // Payment information
   payment: PaymentInfo;
-  
+
   // Tracking history
   trackingHistory: TrackingEvent[];
-  
+
   // Invoice details (currently unknown structure, can be typed later)
   invoiceDetails: unknown[];
 }

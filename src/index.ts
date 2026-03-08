@@ -43,10 +43,4 @@ export type { CNTrackingRequest } from "./endpoints/tracking.js";
 export type { CNTrackingResult, ShipmentDetails, TrackingEvent } from "./models/tracking.js";
 
 // Re-export errors for consumers
-export {
-  MulphilogError,
-  ValidationError,
-  APIError,
-  TimeoutError,
-  NetworkError,
-} from "./errors.js";
+export { MulphilogError, ValidationError, APIError, TimeoutError, NetworkError } from "./errors.js";

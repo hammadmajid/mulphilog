@@ -45,7 +45,7 @@ export interface EndpointConfig<TRequest, TRawResponse, TResult> {
 export function buildQueryUrl(
   baseUrl: string,
   path: string,
-  params: Record<string, string>
+  params: Record<string, string>,
 ): string {
   const url = new URL(path, baseUrl);
   for (const [key, value] of Object.entries(params)) {
@@ -59,5 +59,5 @@ export function buildQueryUrl(
  */
 export type EndpointExecutor = <TRequest, TRawResponse, TResult>(
   config: EndpointConfig<TRequest, TRawResponse, TResult>,
-  params: TRequest
+  params: TRequest,
 ) => Promise<Result<TResult>>;

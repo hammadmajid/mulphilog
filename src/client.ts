@@ -30,7 +30,7 @@ export function createClientConfig(options: MulphilogOptions): ClientConfig {
 export async function callEndpoint<TRequest, TRawResponse, TResult>(
   config: ClientConfig,
   endpoint: EndpointConfig<TRequest, TRawResponse, TResult>,
-  params: TRequest
+  params: TRequest,
 ): Promise<Result<TResult>> {
   try {
     // Build the URL
@@ -62,7 +62,7 @@ export async function callEndpoint<TRequest, TRawResponse, TResult>(
           error: new APIError(
             `API request failed: ${response.status} ${response.statusText}`,
             response.status,
-            response.statusText
+            response.statusText,
           ),
         };
       }

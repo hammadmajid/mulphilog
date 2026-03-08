@@ -31,10 +31,7 @@ export function isNumber(value: unknown): value is number {
 /**
  * Validate that a field exists and is not null/undefined
  */
-export function validateRequired<T>(
-  value: T,
-  fieldName: string
-): asserts value is NonNullable<T> {
+export function validateRequired<T>(value: T, fieldName: string): asserts value is NonNullable<T> {
   if (value === null || value === undefined) {
     throw new ValidationError(`Required field '${fieldName}' is missing`, fieldName);
   }
@@ -59,12 +56,12 @@ export function parseDate(value: string): Date {
   if (!value || typeof value !== "string") {
     throw new ValidationError(`Invalid date value: ${value}`);
   }
-  
+
   const date = new Date(value);
   if (isNaN(date.getTime())) {
     throw new ValidationError(`Unable to parse date: ${value}`);
   }
-  
+
   return date;
 }
 
@@ -76,12 +73,12 @@ export function parseDateTime(value: string): Date {
   if (!value || typeof value !== "string") {
     throw new ValidationError(`Invalid datetime value: ${value}`);
   }
-  
+
   const date = new Date(value);
   if (isNaN(date.getTime())) {
     throw new ValidationError(`Unable to parse datetime: ${value}`);
   }
-  
+
   return date;
 }
 
@@ -98,7 +95,7 @@ export function parseBoolean(value: string): boolean {
 export function getString(
   obj: Record<string, unknown>,
   key: string,
-  defaultValue: string | undefined = undefined
+  defaultValue: string | undefined = undefined,
 ): string | undefined {
   const value = obj[key];
   if (value === null || value === undefined) {
@@ -113,10 +110,7 @@ export function getString(
 /**
  * Safely get an object value from an object
  */
-export function getObject(
-  obj: Record<string, unknown>,
-  key: string
-): Record<string, unknown> {
+export function getObject(obj: Record<string, unknown>, key: string): Record<string, unknown> {
   const value = obj[key];
   if (!isObject(value)) {
     throw new ValidationError(`Expected object for field '${key}'`, key);
@@ -127,10 +121,7 @@ export function getObject(
 /**
  * Safely get an array value from an object
  */
-export function getArray(
-  obj: Record<string, unknown>,
-  key: string
-): unknown[] {
+export function getArray(obj: Record<string, unknown>, key: string): unknown[] {
   const value = obj[key];
   if (!isArray(value)) {
     throw new ValidationError(`Expected array for field '${key}'`, key);

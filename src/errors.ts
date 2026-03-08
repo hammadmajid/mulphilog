@@ -13,7 +13,10 @@ export class MulphilogError extends Error {
  * Error thrown when API response validation fails
  */
 export class ValidationError extends MulphilogError {
-  constructor(message: string, public readonly field?: string) {
+  constructor(
+    message: string,
+    public readonly field?: string,
+  ) {
     super(message);
     this.name = "ValidationError";
     Object.setPrototypeOf(this, ValidationError.prototype);
@@ -27,7 +30,7 @@ export class APIError extends MulphilogError {
   constructor(
     message: string,
     public readonly statusCode?: number,
-    public readonly statusText?: string
+    public readonly statusText?: string,
   ) {
     super(message);
     this.name = "APIError";
@@ -39,7 +42,10 @@ export class APIError extends MulphilogError {
  * Error thrown when request times out
  */
 export class TimeoutError extends MulphilogError {
-  constructor(message: string, public readonly timeoutMs: number) {
+  constructor(
+    message: string,
+    public readonly timeoutMs: number,
+  ) {
     super(message);
     this.name = "TimeoutError";
     Object.setPrototypeOf(this, TimeoutError.prototype);
@@ -51,7 +57,7 @@ export class TimeoutError extends MulphilogError {
  */
 export class NetworkError extends MulphilogError {
   public override readonly cause: Error | undefined;
-  
+
   constructor(message: string, cause: Error | undefined = undefined) {
     super(message);
     this.name = "NetworkError";

@@ -24,15 +24,15 @@ export const CNTrackingEndpoint: EndpointConfig<
   baseUrl: BASE_URLS.TRACKING,
   path: "/api/CNTracking",
   method: "GET",
-  
+
   buildUrl: (params: CNTrackingRequest): string => {
     return buildQueryUrl(BASE_URLS.TRACKING, "/api/CNTracking", {
       consignment: params.consignment,
       id: API_CONSTANTS.TRACKING_ID,
     });
   },
-  
+
   validate: validateCNTrackingResponse,
-  
+
   transform: transformCNTrackingResponse,
 };

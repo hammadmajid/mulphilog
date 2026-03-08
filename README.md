@@ -46,7 +46,7 @@ const result = await client.track({
 // Handle result with type-safe error handling
 if (result.ok) {
   console.log("Success:", result.data.message);
-  
+
   if (result.data.shipment) {
     const { shipment } = result.data;
     console.log("From:", shipment.originCity);

@@ -1,5 +1,10 @@
 import { ValidationError } from "../errors.js";
-import type { CNTrackingResponseRaw, CNTrackingResponseItemRaw, TrackingDetailRaw, CNTrackingDetailItemRaw } from "../types/tracking.js";
+import type {
+  CNTrackingResponseRaw,
+  CNTrackingResponseItemRaw,
+  TrackingDetailRaw,
+  CNTrackingDetailItemRaw,
+} from "../types/tracking.js";
 import { isArray, isObject, getString, getArray } from "./utils.js";
 
 /**
@@ -45,7 +50,15 @@ function validateTrackingDetail(data: unknown): TrackingDetailRaw {
   const destinationCity = getString(data, "DestinationCity");
   const deliveryAddress = getString(data, "DeliveryAddress");
 
-  if (!consignmentNumber || !originCity || !bookingDate || !consigneeName || !consignerName || !destinationCity || !deliveryAddress) {
+  if (
+    !consignmentNumber ||
+    !originCity ||
+    !bookingDate ||
+    !consigneeName ||
+    !consignerName ||
+    !destinationCity ||
+    !deliveryAddress
+  ) {
     throw new ValidationError("Missing required fields in tracking detail");
   }
 
