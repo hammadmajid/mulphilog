@@ -10,7 +10,7 @@
 > [!WARNING]
 > This library is currently a work in progress and may not be fully functional or stable. Use with caution and at your own risk. Contributions and feedback are welcome!
 
-A thin, zero-dependency TypeScript wrapper around the Mulphilog (M&P) courier company API.
+A thin, TypeScript wrapper around the Mulphilog (M&P) courier company API with runtime validation powered by Zod.
 
 ## Installation
 
