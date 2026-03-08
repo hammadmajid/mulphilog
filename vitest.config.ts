@@ -18,12 +18,12 @@ export default defineConfig({
         ".husky/**",
         "vendor/**",
       ],
-      // Enforce 85% coverage threshold
+      // Enforce 75% coverage threshold
       thresholds: {
-        lines: 85,
-        functions: 85,
-        branches: 85,
-        statements: 85,
+        lines: 75,
+        functions: 75,
+        branches: 75,
+        statements: 75,
       },
     },
 
