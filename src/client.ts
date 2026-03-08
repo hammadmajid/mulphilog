@@ -1,6 +1,6 @@
-import type { Result, MulphilogOptions } from "./types/common.js";
+import type { MulphilogOptions, Result } from "./types/common.js";
 import type { EndpointConfig } from "./endpoints/base.js";
-import { APIError, TimeoutError, NetworkError, ValidationError, MulphilogError } from "./errors.js";
+import { APIError, MulphilogError, NetworkError, TimeoutError, ValidationError } from "./errors.js";
 import { DEFAULT_TIMEOUT } from "./config.js";
 import { ZodError } from "zod";
 
@@ -53,8 +53,7 @@ function formatZodError(error: ZodError): string {
 
   if (missingFieldErrors.length > 0) {
     const fields = missingFieldErrors.map((issue) => {
-      const path = issue.path.join(".");
-      return path;
+      return issue.path.join(".");
     });
 
     // Always use plural "fields" for consistency
@@ -105,99 +104,66 @@ export async function callEndpoint<TRequest, TRawResponse, TResult>(
   params: TRequest,
 ): Promise<Result<TResult>> {
   try {
-    // Build the URL
     const url = endpoint.buildUrl(params);
 
-    // Setup fetch options
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
     };
 
-    // Create abort controller for timeout
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), config.timeout);
 
-    try {
-      // Make the request
-      const response = await fetch(url, {
-        method: endpoint.method,
-        headers,
-        signal: controller.signal,
-      });
+    const response = await fetch(url, {
+      method: endpoint.method,
+      headers,
+      signal: controller.signal,
+    });
 
-      clearTimeout(timeoutId);
+    clearTimeout(timeoutId);
 
-      // Check for HTTP errors
-      if (!response.ok) {
-        return {
-          ok: false,
-          error: new APIError(
-            `API request failed: ${response.status} ${response.statusText}`,
-            response.status,
-            response.statusText,
-          ),
-        };
-      }
-
-      // Parse JSON response
-      const rawData: unknown = await response.json();
-
-      // Validate response structure
-      const validatedData = endpoint.validate(rawData);
-
-      // Transform to clean model - wrap in try-catch to handle ZodError
-      try {
-        const transformedData = endpoint.transform(validatedData);
-
-        return {
-          ok: true,
-          data: transformedData,
-        };
-      } catch (error) {
-        // Handle Zod validation errors
-        if (error instanceof ZodError) {
-          return {
-            ok: false,
-            error: new ValidationError(formatZodError(error)),
-          };
-        }
-        throw error;
-      }
-    } catch (error) {
-      clearTimeout(timeoutId);
-
-      // Handle abort (timeout)
-      if (error instanceof Error && error.name === "AbortError") {
-        return {
-          ok: false,
-          error: new TimeoutError(`Request timeout after ${config.timeout}ms`, config.timeout),
-        };
-      }
-
-      // Re-throw validation errors
-      if (error instanceof ValidationError) {
-        return {
-          ok: false,
-          error,
-        };
-      }
-
-      // Handle network errors
-      if (error instanceof Error) {
-        return {
-          ok: false,
-          error: new NetworkError(`Network request failed: ${error.message}`, error),
-        };
-      }
-
-      // Unknown error
+    if (!response.ok) {
       return {
         ok: false,
-        error: new MulphilogError("Unknown error occurred"),
+        error: new APIError(
+          `API request failed: ${response.status} ${response.statusText}`,
+          response.status,
+          response.statusText,
+        ),
       };
     }
+
+    const rawData: unknown = await response.json();
+
+    const validatedData = endpoint.validate(rawData);
+
+    const transformedData = endpoint.transform(validatedData);
+
+    return {
+      ok: true,
+      data: transformedData,
+    };
   } catch (error) {
-    // Handle any unexpected errors in URL building or setup
+    if (error instanceof ValidationError) {
+      return {
+        ok: false,
+        error,
+      };
+    }
+
+    if (error instanceof ZodError) {
+      return {
+        ok: false,
+        error: new ValidationError(formatZodError(error)),
+      };
+    }
+
+    if (error instanceof Error && error.name === "AbortError") {
+      return {
+        ok: false,
+        error: new TimeoutError(`Request timeout after ${config.timeout}ms`, config.timeout),
+      };
+    }
+
     if (error instanceof MulphilogError) {
       return {
         ok: false,
@@ -205,9 +171,16 @@ export async function callEndpoint<TRequest, TRawResponse, TResult>(
       };
     }
 
+    if (error instanceof Error) {
+      return {
+        ok: false,
+        error: new NetworkError(`Network request failed: ${error.message}`, error),
+      };
+    }
+
     return {
       ok: false,
-      error: new MulphilogError(error instanceof Error ? error.message : "Unknown error"),
+      error: new MulphilogError("Unknown error occurred"),
     };
   }
 }
