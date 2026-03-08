@@ -3,13 +3,6 @@
   "version": "0.1.0",
   "exports": "./src/index.ts",
   "publish": {
-    "exclude": [
-      "node_modules",
-      "dist",
-      ".github",
-      ".git",
-      ".idea",
-      "*.log"
-    ]
+    "exclude": ["node_modules", "dist", ".github", ".git", ".idea", "*.log"]
   }
 }
