@@ -24,7 +24,7 @@ function formatZodError(error: ZodError): string {
     const issue = issues[0];
 
     // Check if it's a root-level array error
-    if (issue && issue.path.length === 0 && issue.message.includes("expected array")) {
+    if (issue?.path.length === 0 && issue.message.includes("expected array")) {
       return "Response must be an array";
     }
 
@@ -37,9 +37,9 @@ function formatZodError(error: ZodError): string {
     }
 
     // Check for type errors involving arrays
-    if (issue && issue.message.includes("expected array")) {
+    if (issue?.message?.includes("expected array")) {
       const path = issue.path.length > 0 ? issue.path.join(".") : "field";
-      return `Expected array for ${path}, but received ${issue.message.split("received ")[1] || "invalid type"}`;
+      return `Expected array for ${path}, but received ${issue.message.split("received ")[1] ?? "invalid type"}`;
     }
   }
 
@@ -78,7 +78,7 @@ function formatZodError(error: ZodError): string {
   }
 
   if (errors.length === 1) {
-    return errors[0] || "Validation failed";
+    return errors[0] ?? "Validation failed";
   }
 
   return `Validation failed with ${errors.length} errors:\n${errors.map((e: string) => `  - ${e}`).join("\n")}`;

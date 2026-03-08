@@ -118,7 +118,7 @@ export const shipmentDetailsSchema = z
     specialInstruction: data.SpecialInstruction,
     delivery: {
       handOverDate: data.HandOverDate
-        ? (() => {
+        ? ((): Date | undefined => {
             const date = new Date(data.HandOverDate);
             return isNaN(date.getTime()) ? undefined : date;
           })()
@@ -129,7 +129,7 @@ export const shipmentDetailsSchema = z
     invoice: {
       invoiceNumber: data.InvoiceNumber ?? undefined,
       invoiceDate: data.InvoiceDate
-        ? (() => {
+        ? ((): Date | undefined => {
             const date = new Date(data.InvoiceDate);
             return isNaN(date.getTime()) ? undefined : date;
           })()
@@ -140,7 +140,7 @@ export const shipmentDetailsSchema = z
     returnReceipt: {
       rrNo: data.RRNo ?? undefined,
       rrDate: data.RRDate
-        ? (() => {
+        ? ((): Date | undefined => {
             const date = new Date(data.RRDate);
             return isNaN(date.getTime()) ? undefined : date;
           })()
@@ -152,7 +152,7 @@ export const shipmentDetailsSchema = z
       paymentID: data.PaymentID ?? undefined,
       instrumentNumber: data.InstrumentNumber ?? undefined,
       paymentDate: data.PaymentDate
-        ? (() => {
+        ? ((): Date | undefined => {
             const date = new Date(data.PaymentDate);
             return isNaN(date.getTime()) ? undefined : date;
           })()
@@ -160,7 +160,7 @@ export const shipmentDetailsSchema = z
       amountPaid: data.AmountPaid && data.AmountPaid !== "" ? Number(data.AmountPaid) : undefined,
       adjustedPaymentID: data.AdjustedPaymentID ?? undefined,
       adjustedPaymentDate: data.AdjustedPaymentDate
-        ? (() => {
+        ? ((): Date | undefined => {
             const date = new Date(data.AdjustedPaymentDate);
             return isNaN(date.getTime()) ? undefined : date;
           })()
