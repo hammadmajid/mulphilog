@@ -14,8 +14,18 @@ const stringToNumber = z
     return isNaN(num) ? undefined : num;
   });
 
-// Transform string to Date
-const stringToDate = z.string().transform((val) => new Date(val));
+// Transform string to Date with validation
+const stringToDate = z.string().transform((val, ctx) => {
+  const date = new Date(val);
+  if (isNaN(date.getTime())) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: `Invalid date format: "${val}"`,
+    });
+    return z.NEVER;
+  }
+  return date;
+});
 
 // Transform "true"/"false" string to boolean
 const stringToBoolean = z.string().transform((val) => val === "true");
@@ -107,30 +117,53 @@ export const shipmentDetailsSchema = z
     serviceType: data.ServiceType,
     specialInstruction: data.SpecialInstruction,
     delivery: {
-      handOverDate: data.HandOverDate ? new Date(data.HandOverDate) : undefined,
+      handOverDate: data.HandOverDate
+        ? (() => {
+            const date = new Date(data.HandOverDate);
+            return isNaN(date.getTime()) ? undefined : date;
+          })()
+        : undefined,
       deliveryRider: data.DeliveryRider ?? undefined,
       deliveryRiderContact: data.DeliveryRiderContact ?? undefined,
     },
     invoice: {
       invoiceNumber: data.InvoiceNumber ?? undefined,
-      invoiceDate: data.InvoiceDate ? new Date(data.InvoiceDate) : undefined,
+      invoiceDate: data.InvoiceDate
+        ? (() => {
+            const date = new Date(data.InvoiceDate);
+            return isNaN(date.getTime()) ? undefined : date;
+          })()
+        : undefined,
       amountInvoiced:
         data.AmountInvoiced && data.AmountInvoiced !== "" ? Number(data.AmountInvoiced) : undefined,
     },
     returnReceipt: {
       rrNo: data.RRNo ?? undefined,
-      rrDate: data.RRDate ? new Date(data.RRDate) : undefined,
+      rrDate: data.RRDate
+        ? (() => {
+            const date = new Date(data.RRDate);
+            return isNaN(date.getTime()) ? undefined : date;
+          })()
+        : undefined,
       rrUser: data.RRUser ?? undefined,
       rrBranch: data.RRBranch ?? undefined,
     },
     payment: {
       paymentID: data.PaymentID ?? undefined,
       instrumentNumber: data.InstrumentNumber ?? undefined,
-      paymentDate: data.PaymentDate ? new Date(data.PaymentDate) : undefined,
+      paymentDate: data.PaymentDate
+        ? (() => {
+            const date = new Date(data.PaymentDate);
+            return isNaN(date.getTime()) ? undefined : date;
+          })()
+        : undefined,
       amountPaid: data.AmountPaid && data.AmountPaid !== "" ? Number(data.AmountPaid) : undefined,
       adjustedPaymentID: data.AdjustedPaymentID ?? undefined,
       adjustedPaymentDate: data.AdjustedPaymentDate
-        ? new Date(data.AdjustedPaymentDate)
+        ? (() => {
+            const date = new Date(data.AdjustedPaymentDate);
+            return isNaN(date.getTime()) ? undefined : date;
+          })()
         : undefined,
     },
     trackingHistory: data.CNTrackingDetail,
