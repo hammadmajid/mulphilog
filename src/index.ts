@@ -45,11 +45,7 @@ export function Mulphilog(options: MulphilogOptions = {}): MulphilogClient {
   /**
    * Make an HTTP request to the Mulphilog API
    */
-  async function request<T>(
-    endpoint: string,
-    method: string = "GET",
-    body?: unknown,
-  ): Promise<T> {
+  async function request<T>(endpoint: string, method: string = "GET", body?: unknown): Promise<T> {
     const url = `${config.baseUrl}${endpoint}`;
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
@@ -76,9 +72,7 @@ export function Mulphilog(options: MulphilogOptions = {}): MulphilogClient {
       const response = await fetch(url, init);
 
       if (!response.ok) {
-        throw new Error(
-          `Mulphilog API error: ${response.status} ${response.statusText}`,
-        );
+        throw new Error(`Mulphilog API error: ${response.status} ${response.statusText}`);
       }
 
       return (await response.json()) as T;
@@ -107,9 +101,7 @@ export function Mulphilog(options: MulphilogOptions = {}): MulphilogClient {
     /**
      * Create a new shipping order
      */
-    async createOrder(
-      orderOptions: CreateOrderOptions,
-    ): Promise<CreateOrderResponse> {
+    async createOrder(orderOptions: CreateOrderOptions): Promise<CreateOrderResponse> {
       if (!orderOptions || typeof orderOptions !== "object") {
         throw new Error("Order options must be provided");
       }

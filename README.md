@@ -76,11 +76,11 @@ Creates a new Mulphilog API client instance.
 
 #### Options
 
-| Option     | Type     | Required | Default                       | Description                       |
-| ---------- | -------- | -------- | ----------------------------- | --------------------------------- |
-| `apiKey`   | `string` | No       | `""`                          | API key for authentication        |
-| `baseUrl`  | `string` | No       | `"https://api.mulphilog.com"` | Base URL for the Mulphilog API    |
-| `timeout`  | `number` | No       | `30000`                       | Request timeout in milliseconds   |
+| Option    | Type     | Required | Default                       | Description                     |
+| --------- | -------- | -------- | ----------------------------- | ------------------------------- |
+| `apiKey`  | `string` | No       | `""`                          | API key for authentication      |
+| `baseUrl` | `string` | No       | `"https://api.mulphilog.com"` | Base URL for the Mulphilog API  |
+| `timeout` | `number` | No       | `30000`                       | Request timeout in milliseconds |
 
 ### Methods
 
@@ -89,6 +89,7 @@ Creates a new Mulphilog API client instance.
 Track a shipment by tracking ID.
 
 **Parameters:**
+
 - `trackingId` (string): The tracking ID to look up
 
 **Returns:** `Promise<TrackingInfo>`
@@ -116,6 +117,7 @@ console.log(tracking.currentLocation);
 Create a new shipping order.
 
 **Parameters:**
+
 - `options` (CreateOrderOptions): Order creation options
 
 **Returns:** `Promise<CreateOrderResponse>`
@@ -142,8 +144,12 @@ interface CreateOrderResponse {
 
 ```typescript
 const order = await mp.createOrder({
-  sender: { /* ... */ },
-  recipient: { /* ... */ },
+  sender: {
+    /* ... */
+  },
+  recipient: {
+    /* ... */
+  },
   package: {
     weight: 2.5,
     dimensions: { length: 30, width: 20, height: 10 },
@@ -171,6 +177,7 @@ import Mulphilog, {
 ## Error Handling
 
 The library throws errors for:
+
 - Invalid parameters (e.g., missing tracking ID)
 - API errors (non-200 responses)
 - Request timeouts

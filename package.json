@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "description": "Thin wrapper around Mulphilog (M&P) courier company API",
   "keywords": [
-    "mulphilog",
-    "courier",
-    "tracking",
-    "shipping",
-    "logistics",
     "api-wrapper",
-    "m&p"
+    "courier",
+    "logistics",
+    "m&p",
+    "mulphilog",
+    "shipping",
+    "tracking"
   ],
   "license": "MIT",
   "author": "",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -21,14 +26,6 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "engines": {
-    "node": ">=20.0.0"
   },
   "scripts": {
     "build": "tsc",
@@ -44,6 +41,9 @@
     "oxfmt": "^0.36.0",
     "oxlint": "^1.51.0",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   },
   "packageManager": "pnpm@10.30.3"
 }
