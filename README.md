@@ -1,6 +1,6 @@
 # Mulphilog [WIP]
 
-> [!CAUTION] 
+> [!CAUTION]
 > This project is not sponsored, affiliated, endorsed, or approved by Mulphilog (M&P) in any way. It is an independent, open-source implementation of a client library for the Mulphilog API.
 
 > [!WARNING]
@@ -21,13 +21,37 @@ pnpm add mulphilog
 ```bash
 yarn add mulphilog
 ```
+
 ## Quick Start
 
-```javascriptjavascript
-import Mulphilog from "mulphilog";
-const client = new Mulphilog({});
+```typescript
+import { Mulphilog } from "mulphilog";
 
-// TODO: add docs
+// Create a client instance
+const client = Mulphilog({
+  username: "your-username",
+  password: "your-password",
+  timeout: 30000, // optional, defaults to 30000ms
+});
+
+// Track a consignment
+const result = await client.track({
+  consignment: "54479410537894",
+});
+
+// Handle result with type-safe error handling
+if (result.ok) {
+  console.log("Success:", result.data.message);
+  
+  if (result.data.shipment) {
+    const { shipment } = result.data;
+    console.log("From:", shipment.originCity);
+    console.log("To:", shipment.destinationCity);
+    console.log("Status:", shipment.trackingHistory[0]?.trackingStatus);
+  }
+} else {
+  console.error("Error:", result.error.message);
+}
 ```
 
 ## Module Support
