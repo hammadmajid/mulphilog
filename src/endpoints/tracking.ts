@@ -1,10 +1,8 @@
 import type { EndpointConfig } from "./base.js";
-import type { CNTrackingResponseRaw } from "../types/tracking.js";
-import type { CNTrackingResult } from "../models/tracking.js";
+import type { CNTrackingResponse } from "../schemas/tracking.js";
 import { BASE_URLS, API_CONSTANTS } from "../config.js";
 import { buildQueryUrl } from "./base.js";
-import { validateCNTrackingResponse } from "../validators/tracking.js";
-import { transformCNTrackingResponse } from "../transformers/tracking.js";
+import { cnTrackingResponseSchema } from "../schemas/tracking.js";
 
 /**
  * Request parameters for CN Tracking endpoint
@@ -16,11 +14,7 @@ export interface CNTrackingRequest {
 /**
  * CN Tracking endpoint configuration
  */
-export const CNTrackingEndpoint: EndpointConfig<
-  CNTrackingRequest,
-  CNTrackingResponseRaw,
-  CNTrackingResult
-> = {
+export const CNTrackingEndpoint: EndpointConfig<CNTrackingRequest, unknown, CNTrackingResponse> = {
   baseUrl: BASE_URLS.TRACKING,
   path: "/api/CNTracking",
   method: "GET",
@@ -32,7 +26,7 @@ export const CNTrackingEndpoint: EndpointConfig<
     });
   },
 
-  validate: validateCNTrackingResponse,
+  validate: (data: unknown) => data,
 
-  transform: transformCNTrackingResponse,
+  transform: (data: unknown) => cnTrackingResponseSchema.parse(data),
 };
