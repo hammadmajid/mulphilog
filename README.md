@@ -1,5 +1,8 @@
 # Mulphilog
 
+> [!CAUTION] 
+> This project is not sponsored, affiliated, endorsed, or approved by Mulphilog (M&P) in any way. It is an independent, open-source implementation of a client library for the Mulphilog API.
+
 A thin, zero-dependency TypeScript wrapper around the Mulphilog (M&P) courier company API.
 
 ## Installation
