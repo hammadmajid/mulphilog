@@ -1,6 +1,6 @@
 {
   "name": "mulphilog",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Thin wrapper around Mulphilog (M&P) courier company API",
   "keywords": [
     "api-wrapper",
@@ -12,7 +12,7 @@
     "tracking"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Hammad Majid <hammadmajid@proton.me>",
   "files": [
     "dist",
     "README.md",

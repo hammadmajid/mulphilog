@@ -1,5 +1,9 @@
 # Mulphilog [WIP]
 
+[![npm version](https://img.shields.io/npm/v/mulphilog.svg)](https://www.npmjs.com/package/mulphilog)
+[![npm downloads](https://img.shields.io/npm/dm/mulphilog.svg)](https://www.npmjs.com/package/mulphilog)
+[![license](https://img.shields.io/npm/l/mulphilog.svg)](https://github.com/hammadmajid/mulphilog/blob/main/LICENSE)
+
 > [!CAUTION]
 > This project is not sponsored, affiliated, endorsed, or approved by Mulphilog (M&P) in any way. It is an independent, open-source implementation of a client library for the Mulphilog API.
 
