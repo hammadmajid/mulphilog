@@ -14,6 +14,8 @@ A thin, zero-dependency TypeScript wrapper around the Mulphilog (M&P) courier co
 
 ## Installation
 
+### npm
+
 ```bash
 npm install mulphilog
 ```
@@ -24,6 +26,16 @@ pnpm add mulphilog
 
 ```bash
 yarn add mulphilog
+```
+
+### JSR
+
+```bash
+npx jsr add @bine/mulphilog
+```
+
+```bash
+deno add @bine/mulphilog
 ```
 
 ## Quick Start
