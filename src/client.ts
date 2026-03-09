@@ -37,7 +37,7 @@ function formatZodError(error: ZodError): string {
     }
 
     // Check for type errors involving arrays
-    if (issue?.message?.includes("expected array")) {
+    if (issue?.message?.includes("expected array") === true) {
       const path = issue.path.length > 0 ? issue.path.join(".") : "field";
       return `Expected array for ${path}, but received ${issue.message.split("received ")[1] ?? "invalid type"}`;
     }

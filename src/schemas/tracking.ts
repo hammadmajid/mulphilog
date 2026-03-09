@@ -9,7 +9,7 @@ const stringToNumber = z
   .string()
   .nullable()
   .transform((val) => {
-    if (!val || val === "") return undefined;
+    if (val === null || val === undefined || val === "") return undefined;
     const num = Number(val);
     return isNaN(num) ? undefined : num;
   });
@@ -117,54 +117,66 @@ export const shipmentDetailsSchema = z
     serviceType: data.ServiceType,
     specialInstruction: data.SpecialInstruction,
     delivery: {
-      handOverDate: data.HandOverDate
-        ? ((): Date | undefined => {
-            const date = new Date(data.HandOverDate);
-            return isNaN(date.getTime()) ? undefined : date;
-          })()
-        : undefined,
+      handOverDate:
+        data.HandOverDate !== null && data.HandOverDate !== undefined
+          ? ((): Date | undefined => {
+              const date = new Date(data.HandOverDate);
+              return isNaN(date.getTime()) ? undefined : date;
+            })()
+          : undefined,
       deliveryRider: data.DeliveryRider ?? undefined,
       deliveryRiderContact: data.DeliveryRiderContact ?? undefined,
     },
     invoice: {
       invoiceNumber: data.InvoiceNumber ?? undefined,
-      invoiceDate: data.InvoiceDate
-        ? ((): Date | undefined => {
-            const date = new Date(data.InvoiceDate);
-            return isNaN(date.getTime()) ? undefined : date;
-          })()
-        : undefined,
+      invoiceDate:
+        data.InvoiceDate !== null && data.InvoiceDate !== undefined
+          ? ((): Date | undefined => {
+              const date = new Date(data.InvoiceDate);
+              return isNaN(date.getTime()) ? undefined : date;
+            })()
+          : undefined,
       amountInvoiced:
-        data.AmountInvoiced && data.AmountInvoiced !== "" ? Number(data.AmountInvoiced) : undefined,
+        data.AmountInvoiced !== null &&
+        data.AmountInvoiced !== undefined &&
+        data.AmountInvoiced !== ""
+          ? Number(data.AmountInvoiced)
+          : undefined,
     },
     returnReceipt: {
       rrNo: data.RRNo ?? undefined,
-      rrDate: data.RRDate
-        ? ((): Date | undefined => {
-            const date = new Date(data.RRDate);
-            return isNaN(date.getTime()) ? undefined : date;
-          })()
-        : undefined,
+      rrDate:
+        data.RRDate !== null && data.RRDate !== undefined
+          ? ((): Date | undefined => {
+              const date = new Date(data.RRDate);
+              return isNaN(date.getTime()) ? undefined : date;
+            })()
+          : undefined,
       rrUser: data.RRUser ?? undefined,
       rrBranch: data.RRBranch ?? undefined,
     },
     payment: {
       paymentID: data.PaymentID ?? undefined,
       instrumentNumber: data.InstrumentNumber ?? undefined,
-      paymentDate: data.PaymentDate
-        ? ((): Date | undefined => {
-            const date = new Date(data.PaymentDate);
-            return isNaN(date.getTime()) ? undefined : date;
-          })()
-        : undefined,
-      amountPaid: data.AmountPaid && data.AmountPaid !== "" ? Number(data.AmountPaid) : undefined,
+      paymentDate:
+        data.PaymentDate !== null && data.PaymentDate !== undefined
+          ? ((): Date | undefined => {
+              const date = new Date(data.PaymentDate);
+              return isNaN(date.getTime()) ? undefined : date;
+            })()
+          : undefined,
+      amountPaid:
+        data.AmountPaid !== null && data.AmountPaid !== undefined && data.AmountPaid !== ""
+          ? Number(data.AmountPaid)
+          : undefined,
       adjustedPaymentID: data.AdjustedPaymentID ?? undefined,
-      adjustedPaymentDate: data.AdjustedPaymentDate
-        ? ((): Date | undefined => {
-            const date = new Date(data.AdjustedPaymentDate);
-            return isNaN(date.getTime()) ? undefined : date;
-          })()
-        : undefined,
+      adjustedPaymentDate:
+        data.AdjustedPaymentDate !== null && data.AdjustedPaymentDate !== undefined
+          ? ((): Date | undefined => {
+              const date = new Date(data.AdjustedPaymentDate);
+              return isNaN(date.getTime()) ? undefined : date;
+            })()
+          : undefined,
     },
     trackingHistory: data.CNTrackingDetail,
     invoiceDetails: data.CNTrackingInvDetail,
