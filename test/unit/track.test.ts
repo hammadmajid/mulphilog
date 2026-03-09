@@ -106,15 +106,23 @@ describe("track() function", () => {
       expect(shipment.trackingHistory).toHaveLength(3);
 
       const firstEvent = shipment.trackingHistory[0];
+      // @ts-ignore
       expect(firstEvent.trackingTagID).toBe("TRK-001");
+      // @ts-ignore
       expect(firstEvent.transactionTime).toBeInstanceOf(Date);
+      // @ts-ignore
       expect(firstEvent.location).toBe("Karachi Hub");
+      // @ts-ignore
       expect(firstEvent.trackingStatus).toBe("Booked");
+      // @ts-ignore
       expect(firstEvent.trackingNarration).toBe("Shipment booked successfully");
+      // @ts-ignore
       expect(firstEvent.event).toBe("BOOKING");
 
       const lastEvent = shipment.trackingHistory[2];
+      // @ts-ignore
       expect(lastEvent.trackingStatus).toBe("Delivered");
+      // @ts-ignore
       expect(lastEvent.event).toBe("DELIVERED");
 
       // Verify invoice details array
@@ -161,8 +169,11 @@ describe("track() function", () => {
       // Verify tracking history with minimal data
       expect(shipment.trackingHistory).toHaveLength(1);
       const event = shipment.trackingHistory[0];
+      // @ts-ignore
       expect(event.trackingTagID).toBe("TRK-MINIMAL");
+      // @ts-ignore
       expect(event.location).toBeUndefined();
+      // @ts-ignore
       expect(event.event).toBeUndefined();
     });
 
@@ -406,7 +417,7 @@ describe("track() function", () => {
         password: "test",
       });
 
-      const _result = await client.track({ consignment: "12345678901234" });
+      await client.track({ consignment: "12345678901234" });
 
       expect(global.fetch).toHaveBeenCalledWith(
         expect.any(String),
