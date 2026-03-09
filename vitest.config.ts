@@ -36,6 +36,7 @@ export default defineConfig({
     // Type checking
     typecheck: {
       enabled: false,
+      tsconfig: "./tsconfig.test.json",
     },
   },
 });
