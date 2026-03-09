@@ -37,7 +37,7 @@ body:
           username: process.env.USERNAME,
           password: process.env.PASSWORD,
         });
-        
+
         // Example of the proposed feature
         const result = await client.newFeature({
           // ...

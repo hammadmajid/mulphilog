@@ -25,12 +25,12 @@ body:
       placeholder: |
         ```typescript
         import { Mulphilog } from "mulphilog";
-        
+
         const client = Mulphilog({
           username: process.env.USERNAME,
           password: process.env.PASSWORD,
         });
-        
+
         const result = await client.track({
           consignment: "12345678"
         });
