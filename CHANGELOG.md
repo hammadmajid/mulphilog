@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-03-09
+
+### Added
+
+- **Booking API support** - Create bookings/shipments with comprehensive validation
+  - New `booking()` method on Mulphilog client
+  - Full POST request body support in HTTP client
+  - Comprehensive test suite with 26 booking-specific tests (52 total tests)
+  - Test fixtures for booking scenarios
+  - `BookingParams` type for user-provided booking fields
+  - `BookingResponse` schema with array validation and transformation
+
+### Changed
+
+- **Simplified booking configuration** - M&P provided credentials now configured at client level
+  - Added `accountNo`, `locationID`, `insertType`, `returnLocation`, and `subAccountId` to `MulphilogOptions`
+  - Credentials automatically injected in booking requests
+  - Users only provide shipment-specific details, not M&P account configuration
+  - Updated README with new configuration structure
+- Enhanced error formatter to properly handle empty array validation errors
+- Improved Zod error messages for array validation
+
+### Technical
+
+- Added POST/PUT request body support to `callEndpoint` function
+- Updated `ClientConfig` to store M&P provided credentials
+- Separated internal `BookingRequest` from public `BookingParams` type
+
 ## [0.2.1] - 2026-03-09
 
 ### Fixed
