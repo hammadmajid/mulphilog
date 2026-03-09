@@ -23,6 +23,11 @@ function formatZodError(error: ZodError): string {
   if (issues.length === 1) {
     const issue = issues[0];
 
+    // Check for array minimum length error (must be before the "expected array" check)
+    if (issue?.code === "too_small" && issue.path.length === 0) {
+      return "Response array is empty";
+    }
+
     // Check if it's a root-level array error
     if (issue?.path.length === 0 && issue.message.includes("expected array")) {
       return "Response must be an array";
@@ -113,11 +118,19 @@ export async function callEndpoint<TRequest, TRawResponse, TResult>(
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), config.timeout);
 
-    const response = await fetch(url, {
+    // For POST/PUT requests, send params as JSON body
+    // For GET/DELETE requests, params are already in the URL
+    const fetchOptions: RequestInit = {
       method: endpoint.method,
       headers,
       signal: controller.signal,
-    });
+    };
+
+    if (endpoint.method === "POST" || endpoint.method === "PUT") {
+      fetchOptions.body = JSON.stringify(params);
+    }
+
+    const response = await fetch(url, fetchOptions);
 
     clearTimeout(timeoutId);
 

@@ -51,22 +51,54 @@ const client = Mulphilog({
 });
 
 // Track a consignment
-const result = await client.track({
+const trackResult = await client.track({
   consignment: "54479410537894",
 });
 
 // Handle result with type-safe error handling
-if (result.ok) {
-  console.log("Success:", result.data.message);
+if (trackResult.ok) {
+  console.log("Success:", trackResult.data.message);
 
-  if (result.data.shipment) {
-    const { shipment } = result.data;
+  if (trackResult.data.shipment) {
+    const { shipment } = trackResult.data;
     console.log("From:", shipment.originCity);
     console.log("To:", shipment.destinationCity);
     console.log("Status:", shipment.trackingHistory[0]?.trackingStatus);
   }
 } else {
-  console.error("Error:", result.error.message);
+  console.error("Error:", trackResult.error.message);
+}
+
+// Create a booking/shipment
+const bookingResult = await client.booking({
+  consigneeName: "John Doe",
+  consigneeAddress: "123 Main Street, Islamabad",
+  consigneeMobNo: "03001234567",
+  consigneeEmail: "john@example.com",
+  destinationCityName: "karachi",
+  pieces: 1,
+  weight: 2.5,
+  codAmount: 5000,
+  custRefNo: "ORDER-12345",
+  productDetails: "Electronics",
+  fragile: "YES",
+  service: "Overnight",
+  remarks: "Handle with care",
+  insuranceValue: "1000",
+  locationID: "41",
+  AccountNo: "4T154",
+  InsertType: 19,
+  ReturnLocation: 41,
+  subAccountId: 2,
+});
+
+// Handle booking result
+if (bookingResult.ok) {
+  console.log("Booking successful!");
+  console.log("Order Reference:", bookingResult.data.orderReferenceId);
+  console.log("Message:", bookingResult.data.message);
+} else {
+  console.error("Booking failed:", bookingResult.error.message);
 }
 ```
 

@@ -13,6 +13,7 @@ export const DEFAULT_TIMEOUT = 30000;
  */
 export const BASE_URLS = {
   TRACKING: "https://tracking.mulphilog.com.pk",
+  BOOKING: "https://mnpcourier.com/",
   // Future endpoints can be added here:
   // BOOKING: "https://booking.mulphilog.com.pk",
   // API: "https://api.mulphilog.com.pk",
