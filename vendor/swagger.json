@@ -1,0 +1,3771 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Cod"
+  },
+  "host": "mnpcourier.com",
+  "basePath": "/mycodapi",
+  "schemes": ["https"],
+  "paths": {
+    "/api/AddressLabelShopify/GetConsignments": {
+      "post": {
+        "tags": ["AddressLabelShopify"],
+        "operationId": "AddressLabelShopify_GetConsignments",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressLabelConsignmentsModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/AddressLabelShopify/GetCNs": {
+      "post": {
+        "tags": ["AddressLabelShopify"],
+        "operationId": "AddressLabelShopify_GetCNs",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressLabelSearchModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/AddressLabelShopify/GenerateAddressLabel": {
+      "post": {
+        "tags": ["AddressLabelShopify"],
+        "operationId": "AddressLabelShopify_GenerateAddressLabel",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressLabelGenerateModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/AddressLabelShopify/GetAddressLabelLogo": {
+      "post": {
+        "tags": ["AddressLabelShopify"],
+        "operationId": "AddressLabelShopify_GetAddressLabelLogo",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressLabelLogo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/AddressLabelShopify/AddressLabelLogoChange": {
+      "post": {
+        "tags": ["AddressLabelShopify"],
+        "operationId": "AddressLabelShopify_AddressLabelLogoChange",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressLabelLogoChange"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/AddressLabelShopify/GetServices": {
+      "get": {
+        "tags": ["AddressLabelShopify"],
+        "operationId": "AddressLabelShopify_GetServices",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertBookingData": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertBookingData",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/DarazBookingData": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_DarazBookingData",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DarazBookingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertBookingDataAgainstShopID": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertBookingDataAgainstShopID",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/VoidConsignment": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_VoidConsignment",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "lsp",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VoidModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/Generate_LoadSheet_Location": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_Generate_LoadSheet_Location",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "lsp",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GenerateLoadsheetModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/Generate_LoadSheet_Location_API": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_Generate_LoadSheet_Location_API",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "lsp",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GenerateLoadsheetModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertBulkBookingData": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertBulkBookingData",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BulkBookingApiModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertBookingDataReversePickup": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertBookingDataReversePickup",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReversePickupBookingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetInitalScreenData": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_GetInitalScreenData",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApiUserModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertBulkBookingScreenData": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertBulkBookingScreenData",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BulkScreenBookingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertReverseBookingViaCN": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertReverseBookingViaCN",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReversePickupViaCNModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/IsShipperChangeNameAllowed": {
+      "get": {
+        "tags": ["Booking"],
+        "operationId": "Booking_IsShipperChangeNameAllowed",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetSubAccount": {
+      "get": {
+        "tags": ["Booking"],
+        "operationId": "Booking_GetSubAccount",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountNo",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertBulkBookingData_ChangeShippername": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertBulkBookingData_ChangeShippername",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BulkBookingCustomShippernameApiModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/InsertBookingData_ChangeShippername": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_InsertBookingData_ChangeShippername",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookingModel_shippername"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/UpdateBooking": {
+      "post": {
+        "tags": ["Booking"],
+        "operationId": "Booking_UpdateBooking",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateBookingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Branches/Get_Cities": {
+      "get": {
+        "tags": ["Branches"],
+        "operationId": "Branches_Get_Cities",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "AccountNo",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Branches/Get_Cities_All": {
+      "get": {
+        "tags": ["Branches"],
+        "operationId": "Branches_Get_Cities_All",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "AccountNo",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/LoadsheetShopify/GetCNs": {
+      "post": {
+        "tags": ["LoadsheetShopify"],
+        "operationId": "LoadsheetShopify_GetCNs",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoadsheetSearchModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/LoadsheetShopify/GetRiders": {
+      "post": {
+        "tags": ["LoadsheetShopify"],
+        "operationId": "LoadsheetShopify_GetRiders",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoadsheetRiders"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/LoadsheetShopify/GetLoadsheetCNs": {
+      "post": {
+        "tags": ["LoadsheetShopify"],
+        "operationId": "LoadsheetShopify_GetLoadsheetCNs",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoadsheetPrintCNModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/LoadsheetShopify/GenerateLoadsheet": {
+      "post": {
+        "tags": ["LoadsheetShopify"],
+        "operationId": "LoadsheetShopify_GenerateLoadsheet",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoadsheetGenerateModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/LoadsheetShopify/GetLoadsheets": {
+      "post": {
+        "tags": ["LoadsheetShopify"],
+        "operationId": "LoadsheetShopify_GetLoadsheets",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoadsheetSearchModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Locations/Get_locations": {
+      "get": {
+        "tags": ["Locations"],
+        "operationId": "Locations_Get_locations",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "AccountNo",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Locations/AddLocation": {
+      "post": {
+        "tags": ["Locations"],
+        "operationId": "Locations_AddLocation",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddLocationModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Locations/AddLocationWithSubAccount": {
+      "post": {
+        "tags": ["Locations"],
+        "operationId": "Locations_AddLocationWithSubAccount",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddLocationModelSubAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Locations/GetSubAccountLocations": {
+      "get": {
+        "tags": ["Locations"],
+        "operationId": "Locations_GetSubAccountLocations",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SubAccountId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Locations/CreateSubAccount": {
+      "post": {
+        "tags": ["Locations"],
+        "operationId": "Locations_CreateSubAccount",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SubAccountModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/PaymentReconcilation/GetCNReconDetails": {
+      "post": {
+        "tags": ["PaymentReconcilation"],
+        "operationId": "PaymentReconcilation_GetCNReconDetails",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PaymentReconcilationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/QSR_Report": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_QSR_Report",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetQSR"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/QSR_Report_Date_Range": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_QSR_Report_Date_Range",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetQSRDR"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/BookingSummart_Report": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_BookingSummart_Report",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "booking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBookingSummary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/Payment_Report": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_Payment_Report",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "payment",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPaymentReport"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/Payment_Report_Detail_CNWise": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_Payment_Report_Detail_CNWise",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "payment",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPaymentDetailCNWise"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/Invoice_Report": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_Invoice_Report",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "invoice",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetInvoiceReport"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/CN_Detail_Loadsheet_Id": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_CN_Detail_Loadsheet_Id",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "cndetail",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetCNDetailLoadsheetIdReport"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/CN_Detail_Customer_Order_No": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_CN_Detail_Customer_Order_No",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "cndetail",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetCNDetailCustomerOrderNoReport"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/GetPaymentReportById": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_GetPaymentReportById",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPaymentReportByIdPostModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/Payment_Report_Detail_CNWise_GulAhmed": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_Payment_Report_Detail_CNWise_GulAhmed",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "payment",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPaymentDetailCNWise_GulAhmed"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/GetProofOfDelivery": {
+      "get": {
+        "tags": ["Reports"],
+        "operationId": "Reports_GetProofOfDelivery",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "consignmentNumber",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/Payment_Report_Details_CNWise": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_Payment_Report_Details_CNWise",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "payment",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetPaymentDetailCNWise_GulAhmed"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Reports/MullerInvoiceSummary": {
+      "post": {
+        "tags": ["Reports"],
+        "operationId": "Reports_MullerInvoiceSummary",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "invoiceSummary_Muller",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetInvoiceSummary_Muller"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/ShipperAdvice/GetShipperAdvices": {
+      "get": {
+        "tags": ["ShipperAdvice"],
+        "operationId": "ShipperAdvice_GetShipperAdvices",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "AccountNo",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "reportcheckbox",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cn",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "StartDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "EndDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/ShipperAdvice/CloseShipperAdvice": {
+      "get": {
+        "tags": ["ShipperAdvice"],
+        "operationId": "ShipperAdvice_CloseShipperAdvice",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountno",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "consignment",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "adviceoption",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "reattempt",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "remarks",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consigneeaddress",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consigneeno",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/ShipperAdvice/GetInitData": {
+      "post": {
+        "tags": ["ShipperAdvice"],
+        "operationId": "ShipperAdvice_GetInitData",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/ShipperAdvice/GetAdvices": {
+      "post": {
+        "tags": ["ShipperAdvice"],
+        "operationId": "ShipperAdvice_GetAdvices",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/ShipperAdvice/SaveAdvice": {
+      "post": {
+        "tags": ["ShipperAdvice"],
+        "operationId": "ShipperAdvice_SaveAdvice",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShipperAdviceDataModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/ShipperAdvice/TicketDetails": {
+      "get": {
+        "tags": ["ShipperAdvice"],
+        "operationId": "ShipperAdvice_TicketDetails",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "cn",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tariff/GetTariff": {
+      "post": {
+        "tags": ["Tariff"],
+        "operationId": "Tariff_GetTariff",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TariffApiModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Ref_Tracking": {
+      "get": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_ConsignmentRefTracking",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Ref_No",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Consignment_ReferenceNo_Tracking": {
+      "get": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_ConsignmentRefTracking",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Ref_No",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Tracking": {
+      "get": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_Tracking",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "consignment",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Consignment_Tracking": {
+      "get": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_Consignment_Tracking",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "consignment",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Consignment_Tracking_Location": {
+      "get": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_Consignment_Tracking_Location",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "locationID",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "consignment",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Consignment_Tracking_Status_Final": {
+      "get": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_Consignment_Tracking_Status_Final",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "consignment",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/InsertAppStatus": {
+      "post": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_InsertAppStatus",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AppStatusModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Bulk_Consignment_Tracking": {
+      "post": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_Bulk_Consignment_Tracking",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BulkTrackingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Bulk_Consignment_Tracking_New": {
+      "post": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_Bulk_Consignment_Tracking_New",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BulkTrackingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tracking/Bulk_Consignment_Tracking_MULLER": {
+      "post": {
+        "tags": ["Tracking"],
+        "operationId": "Tracking_Bulk_Consignment_Tracking_MULLER",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BulkTrackingMullerModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/UserManagement/GetSubAccounts": {
+      "get": {
+        "tags": ["UserManagement"],
+        "operationId": "UserManagement_GetSubAccounts",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountNo",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/UserManagement/GetAccounts": {
+      "get": {
+        "tags": ["UserManagement"],
+        "operationId": "UserManagement_GetAccounts",
+        "consumes": [],
+        "produces": ["application/json", "text/json", "application/xml", "text/xml"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddressLabelConsignmentsModel": {
+      "required": ["Consignments"],
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Consignments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AddressLabelSearchModel": {
+      "required": ["From", "To"],
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "LocationId": {
+          "type": "string"
+        },
+        "From": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "To": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "AddressLabelGenerateModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "AddressLabels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddressLabelListModel"
+          }
+        }
+      }
+    },
+    "AddressLabelListModel": {
+      "type": "object",
+      "properties": {
+        "CN": {
+          "type": "string"
+        },
+        "CodAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "AddressLabelEdited": {
+          "type": "boolean"
+        },
+        "Consignee": {
+          "type": "string"
+        },
+        "EditMode": {
+          "type": "boolean"
+        },
+        "Pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ProductDetails": {
+          "type": "string"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefNo": {
+          "type": "string"
+        },
+        "ServiceType": {
+          "type": "string"
+        },
+        "Remarks": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "AddressLabelLogo": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "subAccountId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "AddressLabelLogoChange": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "subAccountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LogoImage": {
+          "type": "string"
+        }
+      }
+    },
+    "BookingModel": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "consigneeName": {
+          "type": "string"
+        },
+        "consigneeAddress": {
+          "type": "string"
+        },
+        "consigneeMobNo": {
+          "type": "string"
+        },
+        "consigneeEmail": {
+          "type": "string"
+        },
+        "destinationCityName": {
+          "type": "string"
+        },
+        "pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "codAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "custRefNo": {
+          "type": "string"
+        },
+        "productDetails": {
+          "type": "string"
+        },
+        "fragile": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "insuranceValue": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "InsertType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "subAccountId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "DarazBookingModel": {
+      "type": "object",
+      "properties": {
+        "cn": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "consigneeName": {
+          "type": "string"
+        },
+        "consigneeAddress": {
+          "type": "string"
+        },
+        "consigneeMobNo": {
+          "type": "string"
+        },
+        "shippingType": {
+          "type": "string"
+        },
+        "dropship": {
+          "type": "boolean"
+        },
+        "Sellermobile": {
+          "type": "string"
+        },
+        "sellerName": {
+          "type": "string"
+        },
+        "sellerAddress": {
+          "type": "string"
+        },
+        "returnDestination": {
+          "type": "string"
+        },
+        "destinationCityName": {
+          "type": "string"
+        },
+        "pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "codAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "productDetails": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "ReturnLocation": {
+          "type": "string"
+        },
+        "L3_Desc": {
+          "type": "string"
+        },
+        "L4_Desc": {
+          "type": "string"
+        }
+      }
+    },
+    "VoidModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "consignmentNumberList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GenerateLoadsheetModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "consignmentNumberList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "BulkBookingApiModel": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "InsertType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BulkConsignmentList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkBookingDetailApiModel"
+          }
+        }
+      }
+    },
+    "BulkBookingDetailApiModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "consigneeName": {
+          "type": "string"
+        },
+        "consigneeAddress": {
+          "type": "string"
+        },
+        "consigneeMobNo": {
+          "type": "string"
+        },
+        "consigneeEmail": {
+          "type": "string"
+        },
+        "destinationCityName": {
+          "type": "string"
+        },
+        "pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "codAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "custRefNo": {
+          "type": "string"
+        },
+        "productDetails": {
+          "type": "string"
+        },
+        "fragile": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "insuranceValue": {
+          "type": "string"
+        }
+      }
+    },
+    "ReversePickupBookingModel": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "consignerName": {
+          "type": "string"
+        },
+        "consignerAddress": {
+          "type": "string"
+        },
+        "consignerMobNo": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "custRefNo": {
+          "type": "string"
+        },
+        "productDetails": {
+          "type": "string"
+        },
+        "fragile": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "insuranceValue": {
+          "type": "string"
+        },
+        "destinationLocId": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "InsertType": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ApiUserModel": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Consigner": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "CreditClientId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LocationId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Branch": {
+          "type": "string"
+        },
+        "BranchName": {
+          "type": "string"
+        },
+        "Zone": {
+          "type": "string"
+        },
+        "ConsignerAddress": {
+          "type": "string"
+        },
+        "ConsignerPhoneNo": {
+          "type": "string"
+        },
+        "User": {
+          "type": "string"
+        },
+        "Pass": {
+          "type": "string"
+        },
+        "IsZeroCodAllowed": {
+          "type": "boolean"
+        },
+        "IsDuplicateOrderAllowed": {
+          "type": "boolean"
+        },
+        "IsCentralized": {
+          "type": "boolean"
+        },
+        "VoidByLocation": {
+          "type": "boolean"
+        }
+      }
+    },
+    "BulkScreenBookingModel": {
+      "type": "object",
+      "properties": {
+        "User": {
+          "type": "string"
+        },
+        "Pass": {
+          "type": "string"
+        },
+        "Location": {
+          "type": "string"
+        },
+        "List": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkScreenBookingListModel"
+          }
+        }
+      }
+    },
+    "BulkScreenBookingListModel": {
+      "type": "object",
+      "properties": {
+        "ConsigneeName": {
+          "type": "string"
+        },
+        "ConsigneeAddress": {
+          "type": "string"
+        },
+        "ConsigneeMobileNumber": {
+          "type": "string"
+        },
+        "ConsigneeEmail": {
+          "type": "string"
+        },
+        "DestinationCity": {
+          "type": "string"
+        },
+        "Pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "CODAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "CustomerReferenceNumber": {
+          "type": "string"
+        },
+        "SpecialHandling": {
+          "type": "string"
+        },
+        "ServiceType": {
+          "type": "string"
+        },
+        "ProductDetails": {
+          "type": "string"
+        },
+        "Remarks": {
+          "type": "string"
+        }
+      }
+    },
+    "ReversePickupViaCNModel": {
+      "type": "object",
+      "properties": {
+        "UserId": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "CN": {
+          "type": "string"
+        },
+        "LocationId": {
+          "type": "string"
+        }
+      }
+    },
+    "BulkBookingCustomShippernameApiModel": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "subAccountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "InsertType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BulkConsignmentList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkBookingCustomShippernameDetailApiModel"
+          }
+        }
+      }
+    },
+    "BulkBookingCustomShippernameDetailApiModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "consigneeName": {
+          "type": "string"
+        },
+        "consigneeAddress": {
+          "type": "string"
+        },
+        "consigneeMobNo": {
+          "type": "string"
+        },
+        "consigneeEmail": {
+          "type": "string"
+        },
+        "destinationCityName": {
+          "type": "string"
+        },
+        "pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "codAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "custRefNo": {
+          "type": "string"
+        },
+        "productDetails": {
+          "type": "string"
+        },
+        "fragile": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "insuranceValue": {
+          "type": "string"
+        },
+        "shipperName": {
+          "type": "string"
+        },
+        "shipperAddress": {
+          "type": "string"
+        },
+        "shipperPhone": {
+          "type": "string"
+        },
+        "returnLocation": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "BookingModel_shippername": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "consigneeName": {
+          "type": "string"
+        },
+        "consigneeAddress": {
+          "type": "string"
+        },
+        "consigneeMobNo": {
+          "type": "string"
+        },
+        "consigneeEmail": {
+          "type": "string"
+        },
+        "destinationCityName": {
+          "type": "string"
+        },
+        "pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "codAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "custRefNo": {
+          "type": "string"
+        },
+        "productDetails": {
+          "type": "string"
+        },
+        "fragile": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "insuranceValue": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "InsertType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "subAccountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "shipperName": {
+          "type": "string"
+        },
+        "shipperAddress": {
+          "type": "string"
+        },
+        "shipperPhone": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateBookingModel": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "accountNo": {
+          "type": "string"
+        },
+        "consignmnetNumber": {
+          "type": "string"
+        },
+        "consigneeName": {
+          "type": "string"
+        },
+        "consigneeAddress": {
+          "type": "string"
+        },
+        "consigneeMobNo": {
+          "type": "string"
+        },
+        "destinationCityName": {
+          "type": "string"
+        },
+        "pieces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "codAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "custRefNo": {
+          "type": "string"
+        },
+        "productDetails": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        }
+      }
+    },
+    "LoadsheetSearchModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "From": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "To": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AccountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "LoadsheetRiders": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AccountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "LoadsheetPrintCNModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "LoadsheetId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AccountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "LoadsheetGenerateModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "RiderCode": {
+          "type": "string"
+        },
+        "ConsignmentsData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LoadsheetCNModel"
+          }
+        }
+      }
+    },
+    "LoadsheetCNModel": {
+      "type": "object",
+      "properties": {
+        "CN": {
+          "type": "string"
+        },
+        "Consignee": {
+          "type": "string"
+        },
+        "Pcs": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefNo": {
+          "type": "string"
+        },
+        "ServiceType": {
+          "type": "string"
+        },
+        "ProductDetails": {
+          "type": "string"
+        },
+        "Remarks": {
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CNWeight": {
+          "format": "float",
+          "type": "number"
+        },
+        "EditMode": {
+          "type": "boolean"
+        }
+      }
+    },
+    "AddLocationModel": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "accountNo": {
+          "type": "string"
+        },
+        "branchCode": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "locationName": {
+          "type": "string"
+        },
+        "locationAddress": {
+          "type": "string"
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AddLocationModelSubAccount": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "accountNo": {
+          "type": "string"
+        },
+        "branchName": {
+          "type": "string"
+        },
+        "locationName": {
+          "type": "string"
+        },
+        "locationAddress": {
+          "type": "string"
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SubAccountID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "SubAccountModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "ShipperName": {
+          "type": "string"
+        },
+        "ShipperAddress": {
+          "type": "string"
+        },
+        "AutoCN": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PaymentReconcilationRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "LocationId": {
+          "type": "string"
+        },
+        "cn": {
+          "type": "string"
+        }
+      }
+    },
+    "GetQSR": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "MonthNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "locationID": {
+          "type": "string"
+        }
+      }
+    },
+    "GetQSRDR": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "fromDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "toDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        }
+      }
+    },
+    "GetBookingSummary": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "dateFrom": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dateTo": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "destination": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "locationID": {
+          "type": "string"
+        },
+        "consignee": {
+          "type": "string"
+        },
+        "consigneePhone": {
+          "type": "string"
+        },
+        "orderRef": {
+          "type": "string"
+        }
+      }
+    },
+    "GetPaymentReport": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "dateFrom": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dateTo": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        }
+      }
+    },
+    "GetPaymentDetailCNWise": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "consignmentNumber": {
+          "type": "string"
+        },
+        "AccountNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "GetInvoiceReport": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "consignmentNumber": {
+          "type": "string"
+        },
+        "accountNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "GetCNDetailLoadsheetIdReport": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "LoadSheetId": {
+          "type": "string"
+        },
+        "AccountNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "GetCNDetailCustomerOrderNoReport": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "CustomerOrderRef": {
+          "type": "string"
+        },
+        "AccountNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "GetPaymentReportByIdPostModel": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "PaymentId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "AccountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "GetPaymentDetailCNWise_GulAhmed": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "dateFrom": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dateTo": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "AccountNumber": {
+          "type": "string"
+        },
+        "locationID": {
+          "type": "string"
+        }
+      }
+    },
+    "GetInvoiceSummary_Muller": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "dateMonth": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dateYear": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "RequestModel": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "From": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "To": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CN": {
+          "type": "string"
+        }
+      }
+    },
+    "ShipperAdviceDataModel": {
+      "type": "object",
+      "properties": {
+        "CN": {
+          "type": "string"
+        },
+        "BookingDate": {
+          "type": "string"
+        },
+        "TicketNo": {
+          "type": "string"
+        },
+        "TicketDate": {
+          "type": "string"
+        },
+        "CreatedOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DestinationBranch": {
+          "type": "string"
+        },
+        "PendingReason": {
+          "type": "string"
+        },
+        "StandardNote": {
+          "type": "string"
+        },
+        "CallStatus": {
+          "type": "string"
+        },
+        "AdditionalRemarks": {
+          "type": "string"
+        },
+        "KPI": {
+          "type": "string"
+        },
+        "OrderRefNo": {
+          "type": "string"
+        },
+        "Comments": {
+          "type": "string"
+        },
+        "Consignee": {
+          "type": "string"
+        },
+        "ConsigneeContact": {
+          "type": "string"
+        },
+        "ConsigneeAddress": {
+          "type": "string"
+        },
+        "TempAdvice": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Advice": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReattemptReason": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreatedBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CallTrackName": {
+          "type": "string"
+        },
+        "CodAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "ShowDetail": {
+          "type": "boolean"
+        },
+        "CNStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "TariffApiModel": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Origin": {
+          "type": "string"
+        },
+        "Destination": {
+          "type": "string"
+        },
+        "Service": {
+          "type": "string"
+        },
+        "Weight": {
+          "format": "float",
+          "type": "number"
+        }
+      }
+    },
+    "AppStatusModel": {
+      "type": "object",
+      "properties": {
+        "consignmentNo": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "riderCode": {
+          "type": "string"
+        }
+      }
+    },
+    "BulkTrackingModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "AccountNo": {
+          "type": "string"
+        },
+        "Consignments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "BulkTrackingMullerModel": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Consignments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
