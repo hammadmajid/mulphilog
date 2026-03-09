@@ -7,22 +7,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-03-09
+
+### Fixed
+
+- Enhanced null and undefined checks for improved data handling
+- Improved optional chaining and nullish coalescing for better error handling
+
+### Changed
+
+- Streamlined error handling and improved code readability in client.ts
+
+### Added
+
+- Test configuration with tsconfig.test.json
+- Version update script for automated releases
+
+## [0.2.0] - 2024-01-15
+
+### Added
+
+- Zod validation for runtime type checking
+- Comprehensive test suite with Vitest
+- Test coverage reporting (75% threshold)
+- JSR package registry support
+- Pre-commit formatting hooks with husky
+
+### Changed
+
+- Migrated from manual validation to Zod for better type safety
+- Improved Zod validation error handling
+- Enhanced date validation
+
+### Fixed
+
+- Proper Zod validation error handling
+
+## [0.1.0] - 2024-01-01
+
 ### Added
 
 - Initial release of mulphilog
 - TypeScript wrapper around Mulphilog (M&P) courier API
 - Track consignment functionality
 - Type-safe error handling with Result pattern
-- Zero dependencies
+- Zero dependencies (before Zod migration)
 - ESM-only package
-
-## [0.1.0] - TBD
-
-### Added
-
-- Initial release
 - Basic tracking functionality
-- TypeScript support
 - MIT License
 
 ---
