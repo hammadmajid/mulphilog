@@ -1,7 +1,7 @@
 import type { MulphilogOptions, Result } from "./types/common.js";
 import type { CNTrackingResult } from "./models/tracking.js";
 import type { CNTrackingRequest } from "./endpoints/tracking.js";
-import type { BookingRequest } from "./endpoints/booking.js";
+import type { BookingParams, BookingRequest } from "./endpoints/booking.js";
 import type { BookingResponse } from "./schemas/booking.js";
 import { createClientConfig, callEndpoint } from "./client.js";
 import { CNTrackingEndpoint } from "./endpoints/tracking.js";
@@ -20,10 +20,10 @@ interface MulphilogClient {
 
   /**
    * Create a new booking/shipment
-   * @param params - Booking request parameters
+   * @param params - Booking request parameters (user-provided fields only)
    * @returns Result containing booking confirmation or error
    */
-  booking(params: Omit<BookingRequest, "username" | "password">): Promise<Result<BookingResponse>>;
+  booking(params: BookingParams): Promise<Result<BookingResponse>>;
 }
 
 /**
@@ -44,13 +44,19 @@ export function Mulphilog(options: MulphilogOptions): MulphilogClient {
 
     /**
      * Create a new booking/shipment
+     * Automatically injects M&P provided credentials from client config
      */
-    async booking(
-      params: Omit<BookingRequest, "username" | "password">,
-    ): Promise<Result<BookingResponse>> {
+    async booking(params: BookingParams): Promise<Result<BookingResponse>> {
       const fullParams: BookingRequest = {
+        // M&P provided credentials (from config)
         username: config.username,
         password: config.password,
+        AccountNo: config.accountNo,
+        locationID: config.locationID,
+        InsertType: config.insertType,
+        ReturnLocation: config.returnLocation,
+        subAccountId: config.subAccountId,
+        // User provided shipment details
         ...params,
       };
       return callEndpoint(config, BookingEndpoint, fullParams);
@@ -65,7 +71,7 @@ export default Mulphilog;
 export type { MulphilogOptions, Result } from "./types/common.js";
 export type { CNTrackingRequest } from "./endpoints/tracking.js";
 export type { CNTrackingResult, ShipmentDetails, TrackingEvent } from "./models/tracking.js";
-export type { BookingRequest } from "./endpoints/booking.js";
+export type { BookingParams } from "./endpoints/booking.js";
 export type { BookingResponse } from "./schemas/booking.js";
 
 // Re-export errors for consumers

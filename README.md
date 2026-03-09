@@ -43,11 +43,21 @@ deno add @bine/mulphilog
 ```typescript
 import { Mulphilog } from "mulphilog";
 
-// Create a client instance
+// Create a client instance with M&P provided credentials
 const client = Mulphilog({
+  // Authentication credentials (provided by M&P)
   username: "your-username",
   password: "your-password",
-  timeout: 30000, // optional, defaults to 30000ms
+
+  // Account configuration (provided by M&P)
+  accountNo: "4T154", // Parent account number
+  locationID: "41", // Location ID (sub-account)
+  insertType: 19, // Insert type
+  returnLocation: 41, // Return location ID
+  subAccountId: 2, // Sub-account ID
+
+  // Optional settings
+  timeout: 30000, // Request timeout (defaults to 30000ms)
 });
 
 // Track a consignment
@@ -70,6 +80,7 @@ if (trackResult.ok) {
 }
 
 // Create a booking/shipment
+// Note: M&P credentials are automatically injected from client config
 const bookingResult = await client.booking({
   consigneeName: "John Doe",
   consigneeAddress: "123 Main Street, Islamabad",
@@ -85,11 +96,6 @@ const bookingResult = await client.booking({
   service: "Overnight",
   remarks: "Handle with care",
   insuranceValue: "1000",
-  locationID: "41",
-  AccountNo: "4T154",
-  InsertType: 19,
-  ReturnLocation: 41,
-  subAccountId: 2,
 });
 
 // Handle booking result

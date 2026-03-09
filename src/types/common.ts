@@ -14,15 +14,45 @@ export type Result<T, E = Error> = { ok: true; data: T } | { ok: false; error: E
 export interface MulphilogOptions {
   /**
    * Dashboard username provided by M&P
-   * Required for certain endpoints (booking, etc.)
+   * Required for authentication
    */
   username: string;
 
   /**
    * Dashboard password provided by M&P
-   * Required for certain endpoints (booking, etc.)
+   * Required for authentication
    */
   password: string;
+
+  /**
+   * Account number (parent account) provided by M&P
+   * Required for booking operations
+   */
+  accountNo: string;
+
+  /**
+   * Location ID (sub-account) provided by M&P
+   * Required for booking operations
+   */
+  locationID: string;
+
+  /**
+   * Insert type provided by M&P
+   * Required for booking operations
+   */
+  insertType: number;
+
+  /**
+   * Return location ID provided by M&P
+   * Required for booking operations
+   */
+  returnLocation: number;
+
+  /**
+   * Sub-account ID provided by M&P
+   * Required for booking operations
+   */
+  subAccountId: number;
 
   /**
    * Request timeout in milliseconds

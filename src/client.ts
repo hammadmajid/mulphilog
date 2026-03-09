@@ -10,6 +10,11 @@ import { ZodError } from "zod";
 export interface ClientConfig {
   username: string;
   password: string;
+  accountNo: string;
+  locationID: string;
+  insertType: number;
+  returnLocation: number;
+  subAccountId: number;
   timeout: number;
 }
 
@@ -95,6 +100,11 @@ export function createClientConfig(options: MulphilogOptions): ClientConfig {
   return {
     username: options.username,
     password: options.password,
+    accountNo: options.accountNo,
+    locationID: options.locationID,
+    insertType: options.insertType,
+    returnLocation: options.returnLocation,
+    subAccountId: options.subAccountId,
     timeout: options.timeout ?? DEFAULT_TIMEOUT,
   };
 }

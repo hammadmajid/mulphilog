@@ -5,16 +5,17 @@ import { buildQueryUrl } from "./base.js";
 import { bookingResponseSchema } from "../schemas/booking.js";
 
 /**
- * Request parameters for Booking endpoint
+ * Full request parameters for Booking endpoint (internal use)
+ * This includes all fields required by the API
  */
 export interface BookingRequest {
   /**
-   * Get from the client configuration
+   * Authentication username - provided by M&P (from client config)
    */
   username: string;
 
   /**
-   * Get from the client configuration
+   * Authentication password - provided by M&P (from client config)
    */
   password: string;
 
@@ -89,31 +90,49 @@ export interface BookingRequest {
   insuranceValue: string;
 
   /**
-   * Location ID provided by M&P. Max length: 10
+   * Location ID (sub-account) - provided by M&P (from client config)
+   * Max length: 10
    */
   locationID: string;
 
   /**
-   * Account number provided by M&P. Max length: 50
+   * Account number (parent account) - provided by M&P (from client config)
+   * Max length: 50
    * Note: API uses capital N in 'AccountNo'
    */
   AccountNo: string;
 
   /**
-   * Insert type provided by M&P. Max length: 6
+   * Insert type - provided by M&P (from client config)
+   * Max length: 6
    */
   InsertType: number;
 
   /**
-   * Return location ID
+   * Return location ID - provided by M&P (from client config)
    */
   ReturnLocation: number;
 
   /**
-   * Sub-account ID
+   * Sub-account ID - provided by M&P (from client config)
    */
   subAccountId: number;
 }
+
+/**
+ * User-provided booking parameters (excludes M&P credentials and config)
+ * These are the fields users need to provide when calling client.booking()
+ */
+export type BookingParams = Omit<
+  BookingRequest,
+  | "username"
+  | "password"
+  | "AccountNo"
+  | "locationID"
+  | "InsertType"
+  | "ReturnLocation"
+  | "subAccountId"
+>;
 
 /**
  * Booking endpoint configuration
