@@ -106,6 +106,34 @@ if (bookingResult.ok) {
 } else {
   console.error("Booking failed:", bookingResult.error.message);
 }
+
+// Get list of locations
+const locationsResult = await client.getLocations();
+if (locationsResult.ok) {
+  console.log("Locations found:", locationsResult.data.length);
+  locationsResult.data.forEach((loc) => {
+    console.log(`${loc.locationName} (${loc.locationID})`);
+  });
+}
+
+// Get list of cities
+const citiesResult = await client.getCities();
+if (citiesResult.ok) {
+  console.log("Cities found:", citiesResult.data.length);
+}
+
+// Add a new location
+const addLocationResult = await client.addLocation({
+  branchCode: 1,
+  locationName: "New Warehouse",
+  locationAddress: "Plot 123, Industrial Area, Karachi",
+  to: ["manager@example.com"],
+  cc: ["admin@example.com"],
+});
+
+if (addLocationResult.ok) {
+  console.log("Location added successfully:", addLocationResult.data.message);
+}
 ```
 
 ## Module Support
