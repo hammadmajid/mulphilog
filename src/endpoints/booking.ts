@@ -125,13 +125,7 @@ export interface BookingRequest {
  */
 export type BookingParams = Omit<
   BookingRequest,
-  | "username"
-  | "password"
-  | "AccountNo"
-  | "locationID"
-  | "InsertType"
-  | "ReturnLocation"
-  | "subAccountId"
+  "username" | "password" | "AccountNo" | "InsertType" | "ReturnLocation" | "subAccountId"
 >;
 
 /**

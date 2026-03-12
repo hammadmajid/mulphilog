@@ -6,7 +6,6 @@ describe("Locations API", () => {
     username: "testuser",
     password: "testpassword",
     accountNo: "12345",
-    locationID: "1",
     insertType: 1,
     returnLocation: 1,
     subAccountId: 1,

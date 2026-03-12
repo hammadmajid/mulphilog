@@ -80,11 +80,10 @@ export function Mulphilog(options: MulphilogOptions): MulphilogClient {
         username: config.username,
         password: config.password,
         AccountNo: config.accountNo,
-        locationID: config.locationID,
         InsertType: config.insertType,
         ReturnLocation: config.returnLocation,
         subAccountId: config.subAccountId,
-        // User provided shipment details
+        // User provided shipment details (including locationID)
         ...params,
       };
       return callEndpoint(config, BookingEndpoint, fullParams);

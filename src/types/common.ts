@@ -31,12 +31,6 @@ export interface MulphilogOptions {
   accountNo: string;
 
   /**
-   * Location ID (sub-account) provided by M&P
-   * Required for booking operations
-   */
-  locationID: string;
-
-  /**
    * Insert type provided by M&P
    * Required for booking operations
    */

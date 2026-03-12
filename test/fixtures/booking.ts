@@ -177,10 +177,13 @@ export const invalidBookingResponseWrongTypes = [
 ];
 
 /**
- * Booking request parameters (without auth credentials)
+ * Booking request parameters (without auth credentials and auto-injected config)
  * This is what users will pass to the client.booking() method
+ * Note: username, password, AccountNo, InsertType, ReturnLocation, subAccountId
+ * are automatically injected from client config
  */
 export const bookingParamsWithoutAuth = {
+  locationID: "41",
   consigneeName: "Aleeza Moazzam",
   consigneeAddress: "DHA KHI",
   consigneeMobNo: "03134568904",
@@ -195,9 +198,4 @@ export const bookingParamsWithoutAuth = {
   service: "Overnight" as const,
   remarks: "Call Before Delivery",
   insuranceValue: "0",
-  locationID: "41",
-  AccountNo: "4T154",
-  InsertType: 19,
-  ReturnLocation: 41,
-  subAccountId: 2,
 };

@@ -51,7 +51,6 @@ const client = Mulphilog({
 
   // Account configuration (provided by M&P)
   accountNo: "4T154", // Parent account number
-  locationID: "41", // Location ID (sub-account)
   insertType: 19, // Insert type
   returnLocation: 41, // Return location ID
   subAccountId: 2, // Sub-account ID
@@ -82,6 +81,7 @@ if (trackResult.ok) {
 // Create a booking/shipment
 // Note: M&P credentials are automatically injected from client config
 const bookingResult = await client.booking({
+  locationID: "41", // Pickup location ID (provided by M&P, varies per customer)
   consigneeName: "John Doe",
   consigneeAddress: "123 Main Street, Islamabad",
   consigneeMobNo: "03001234567",

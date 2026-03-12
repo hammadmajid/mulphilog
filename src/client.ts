@@ -11,7 +11,6 @@ export interface ClientConfig {
   username: string;
   password: string;
   accountNo: string;
-  locationID: string;
   insertType: number;
   returnLocation: number;
   subAccountId: number;
@@ -101,7 +100,6 @@ export function createClientConfig(options: MulphilogOptions): ClientConfig {
     username: options.username,
     password: options.password,
     accountNo: options.accountNo,
-    locationID: options.locationID,
     insertType: options.insertType,
     returnLocation: options.returnLocation,
     subAccountId: options.subAccountId,

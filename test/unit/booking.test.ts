@@ -18,6 +18,10 @@ describe("booking() function", () => {
   const mockConfig = {
     username: "test_user",
     password: "12345",
+    accountNo: "4T154",
+    insertType: 19,
+    returnLocation: 41,
+    subAccountId: 2,
     timeout: 5000,
   };
 
@@ -149,6 +153,7 @@ describe("booking() function", () => {
       expect(body.codAmount).toBe(1);
       expect(body.fragile).toBe("YES");
       expect(body.service).toBe("Overnight");
+      expect(body.locationID).toBe("41");
       expect(body.AccountNo).toBe("4T154");
       expect(body.InsertType).toBe(19);
       expect(body.ReturnLocation).toBe(41);
