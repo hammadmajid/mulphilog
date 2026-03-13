@@ -2,6 +2,7 @@ import type { EndpointConfig } from "./base.js";
 import type { CNTrackingResponse } from "../schemas/tracking.js";
 import { BASE_URLS, API_CONSTANTS } from "../config.js";
 import { buildQueryUrl } from "./base.js";
+import { z } from "zod";
 import { cnTrackingResponseSchema } from "../schemas/tracking.js";
 
 /**
@@ -14,7 +15,11 @@ export interface CNTrackingRequest {
 /**
  * CN Tracking endpoint configuration
  */
-export const CNTrackingEndpoint: EndpointConfig<CNTrackingRequest, unknown, CNTrackingResponse> = {
+export const CNTrackingEndpoint: EndpointConfig<
+  CNTrackingRequest,
+  z.input<typeof cnTrackingResponseSchema>,
+  CNTrackingResponse
+> = {
   baseUrl: BASE_URLS.TRACKING,
   path: "/api/CNTracking",
   method: "GET",
@@ -26,7 +31,7 @@ export const CNTrackingEndpoint: EndpointConfig<CNTrackingRequest, unknown, CNTr
     });
   },
 
-  validate: (data: unknown) => data,
+  validate: (data: unknown) => data as z.input<typeof cnTrackingResponseSchema>,
 
   transform: (data: unknown) => cnTrackingResponseSchema.parse(data),
 };

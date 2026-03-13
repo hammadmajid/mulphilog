@@ -2,6 +2,7 @@ import type { EndpointConfig } from "./base.js";
 import type { BookingResponse } from "../schemas/booking.js";
 import { BASE_URLS } from "../config.js";
 import { buildQueryUrl } from "./base.js";
+import { z } from "zod";
 import { bookingResponseSchema } from "../schemas/booking.js";
 
 /**
@@ -131,7 +132,11 @@ export type BookingParams = Omit<
 /**
  * Booking endpoint configuration
  */
-export const BookingEndpoint: EndpointConfig<BookingRequest, unknown, BookingResponse> = {
+export const BookingEndpoint: EndpointConfig<
+  BookingRequest,
+  z.input<typeof bookingResponseSchema>,
+  BookingResponse
+> = {
   baseUrl: BASE_URLS.BOOKING,
   path: "/mycodapi/api/Booking/InsertBookingData",
   method: "POST",
@@ -140,7 +145,7 @@ export const BookingEndpoint: EndpointConfig<BookingRequest, unknown, BookingRes
     return buildQueryUrl(BASE_URLS.BOOKING, "/mycodapi/api/Booking/InsertBookingData", {});
   },
 
-  validate: (data: unknown) => data,
+  validate: (data: unknown) => data as z.input<typeof bookingResponseSchema>,
 
   transform: (data: unknown) => bookingResponseSchema.parse(data),
 };

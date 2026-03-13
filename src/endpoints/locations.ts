@@ -1,6 +1,7 @@
 import type { EndpointConfig } from "./base.js";
 import { BASE_URLS } from "../config.js";
 import { buildQueryUrl } from "./base.js";
+import { z } from "zod";
 import {
   getLocationsResponseSchema,
   addLocationResponseSchema,
@@ -85,7 +86,7 @@ export type AddLocationParams = Omit<AddLocationRequest, "userId" | "password" |
  */
 export const GetLocationsEndpoint: EndpointConfig<
   GetLocationsRequest,
-  unknown,
+  z.input<typeof getLocationsResponseSchema>,
   GetLocationsResponse
 > = {
   baseUrl: BASE_URLS.BOOKING,
@@ -100,7 +101,7 @@ export const GetLocationsEndpoint: EndpointConfig<
     });
   },
 
-  validate: (data: unknown) => data,
+  validate: (data: unknown) => data as z.input<typeof getLocationsResponseSchema>,
 
   transform: (data: unknown) => getLocationsResponseSchema.parse(data),
 };
@@ -108,31 +109,34 @@ export const GetLocationsEndpoint: EndpointConfig<
 /**
  * Get Cities endpoint configuration
  */
-export const GetCitiesEndpoint: EndpointConfig<GetLocationsRequest, unknown, GetLocationsResponse> =
-  {
-    baseUrl: BASE_URLS.BOOKING,
-    path: "/mycodapi/api/Branches/Get_Cities",
-    method: "GET",
+export const GetCitiesEndpoint: EndpointConfig<
+  GetLocationsRequest,
+  z.input<typeof getLocationsResponseSchema>,
+  GetLocationsResponse
+> = {
+  baseUrl: BASE_URLS.BOOKING,
+  path: "/mycodapi/api/Branches/Get_Cities",
+  method: "GET",
 
-    buildUrl: (params: GetLocationsRequest): string => {
-      return buildQueryUrl(BASE_URLS.BOOKING, "/mycodapi/api/Branches/Get_Cities", {
-        username: params.username,
-        password: params.password,
-        AccountNo: params.AccountNo,
-      });
-    },
+  buildUrl: (params: GetLocationsRequest): string => {
+    return buildQueryUrl(BASE_URLS.BOOKING, "/mycodapi/api/Branches/Get_Cities", {
+      username: params.username,
+      password: params.password,
+      AccountNo: params.AccountNo,
+    });
+  },
 
-    validate: (data: unknown) => data,
+  validate: (data: unknown) => data as z.input<typeof getLocationsResponseSchema>,
 
-    transform: (data: unknown) => getLocationsResponseSchema.parse(data),
-  };
+  transform: (data: unknown) => getLocationsResponseSchema.parse(data),
+};
 
 /**
  * Add Location endpoint configuration
  */
 export const AddLocationEndpoint: EndpointConfig<
   AddLocationRequest,
-  AddLocationRequest,
+  z.input<typeof addLocationResponseSchema>,
   AddLocationResponse
 > = {
   baseUrl: BASE_URLS.BOOKING,
@@ -143,7 +147,7 @@ export const AddLocationEndpoint: EndpointConfig<
     return buildQueryUrl(BASE_URLS.BOOKING, "/mycodapi/api/Locations/AddLocation", {});
   },
 
-  validate: (data: unknown) => data,
+  validate: (data: unknown) => data as z.input<typeof addLocationResponseSchema>,
 
   transform: (data: unknown) => addLocationResponseSchema.parse(data),
 };
