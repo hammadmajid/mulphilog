@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-03-14
+
+### Added
+
+- Location methods: `getLocations()` and `getCities()` for retrieving available pickup/delivery locations
+- Added `swagger.json` for API documentation
+- Pull request and issue templates for better GitHub collaboration
+
+### Changed
+
+- **BREAKING:** Moved `locationID` from client configuration to booking request parameters. Client config no longer requires `locationID`; it must be passed with each booking request.
+- **BREAKING:** Moved M&P credentials (`accountNo`, `locationID`, `insertType`, `returnLocation`, `subAccountId`) to client configuration. The booking API now only requires user-provided shipment details, with credentials automatically injected.
+- Refactored to use Zod types more appropriately across endpoints
+
+### Technical
+
+- Enhanced booking API with improved POST request support
+- Code formatting updates
+
 ## [0.3.0] - 2026-03-09
 
 ### Added
